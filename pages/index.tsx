@@ -44,8 +44,8 @@ const Index = () => {
         handleSearch={searchIp}
       />
       <Container>
-        <Map />
         <Location />
+        <Map />
       </Container>
     </Context.Provider>
     

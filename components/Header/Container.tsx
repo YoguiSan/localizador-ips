@@ -4,6 +4,7 @@ import Background from '../../assets/img/pattern-bg.png';
 
 const Container: any = styles.header`
 background: url(${Background}) no-repeat;
+background-size: cover;
 height: 15rem;
 padding: 2rem;
 width: 100%;
@@ -54,6 +55,8 @@ width: 100%;
 }
 
 @media(max-width: 560px) {
+  height: 20rem;
+
   #header-container {
     width: 100%;
 

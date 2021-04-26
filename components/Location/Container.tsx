@@ -17,6 +17,7 @@ min-width: 60%;
 position: absolute;
 right: 0;
 transform: translateY(-50%);
+z-index: 1000;
 
 div.verticaldivider {
   border-right: solid 1px ${DarkGray};
@@ -35,7 +36,6 @@ div.verticaldivider {
   max-width: 90%;
   min-width: 80%;
   padding: 1rem;
-  transform: translateY(-20%);
 
   div.verticaldivider {
     display: none;

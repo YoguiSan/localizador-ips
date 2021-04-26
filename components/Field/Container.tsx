@@ -23,8 +23,6 @@ const Container = styles.div`
   }
 
   @media(max-width: 560px) {
-    margin-bottom: 1rem;
-
     h2, p {
       text-align: center;
     }
