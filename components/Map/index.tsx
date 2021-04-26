@@ -11,22 +11,25 @@ import { Context } from '../../pages';
 
 import 'leaflet/dist/leaflet.css';
 
-const MapContainer:ComponentType<{}> = dynamic(
-  () => import('react-leaflet').then(({ MapContainer }) => MapContainer),
+const MapContainer:ComponentType<{
+  center: Array<number>,
+  zoom: number,
+}> = dynamic(
+  () => import('react-leaflet').then(({ MapContainer }):any => MapContainer),
   {
     ssr: false,
   },
 );
 
-const TileLayer:ComponentType<{}> = dynamic(
+const TileLayer:ComponentType<{ url: string }> = dynamic(
   () => import('react-leaflet').then(({ TileLayer }):any => TileLayer),
   {
     ssr: false,
   },
 );
 
-const Marker:ComponentType<{}> = dynamic(
-  () => import('react-leaflet').then(({ Marker }) => Marker),
+const Marker:ComponentType<{ position: Array<any> }> = dynamic(
+  () => import('react-leaflet').then(({ Marker }):any => Marker),
   {
     ssr: false,
   },
@@ -60,28 +63,16 @@ const MapComponent:React.FC = () => {
               || (clientLocation && clientLocation?.location?.lat && clientLocation?.location?.lng && [clientLocation?.location?.lat, clientLocation?.location?.lng])
               || [0, 0];
 
-            const mapContainerProps = {
-              center: position,
-              zoom: 13,
-            };
-
-            const tileLayerProps = {
-              url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            };
-
-            const markerProps = {
-              position,
-            };
-
             return(
               <MapContainer
-                {...mapContainerProps}
+                center={position}
+                zoom={13}
               >
                 <TileLayer
-                  {...tileLayerProps}
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <Marker
-                  {...markerProps}
+                  position={position}
                 >
                   <Popup>
                     

@@ -1,4 +1,4 @@
-import React, { createContext, SetStateAction, useEffect, useState } from 'react';
+import React, { createContext, EffectCallback, SetStateAction, useEffect, useState } from 'react';
 import styles from 'styled-components';
 import Header from '../components/Header';
 import Location from '../components/Location';
@@ -31,11 +31,10 @@ const Index:React.FC = () => {
   };
 
   useEffect(() => {
-    const clientLocationInfo:SetStateAction<any> = async () => await getClientIp();
-    setClientLocation(clientLocationInfo);
-  }, []);
+    const get = async () => await getClientIp().then(res => setClientLocation(res));
 
-  console.log(location, clientLocation)
+    get();
+  }, []);
 
   return (
     <Context.Provider value={contextValue}>
