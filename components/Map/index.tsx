@@ -32,14 +32,12 @@ const Marker:ComponentType<{}> = dynamic(
   },
 );
 
-/*
 const Popup:ComponentType<{}> = dynamic(
   () => import('react-leaflet').then(({ Popup }) => Popup),
   {
     ssr: false,
   },
 );
-*/
 // let DefaultIcon = {};
 
 const MapComponent:React.FC = () => {
@@ -66,13 +64,13 @@ const MapComponent:React.FC = () => {
               center: position,
               zoom: 13,
             };
-            /*
+
             const tileLayerProps = {
               url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
             };
-            */
+
             const markerProps = {
-              position: position,
+              position,
             };
 
             return(
@@ -80,11 +78,14 @@ const MapComponent:React.FC = () => {
                 {...mapContainerProps}
               >
                 <TileLayer
-                  // {...tileLayerProps}
+                  {...tileLayerProps}
                 />
                 <Marker
                   {...markerProps}
                 >
+                  <Popup>
+                    
+                  </Popup>
                 </Marker>
               </MapContainer>
             )}
