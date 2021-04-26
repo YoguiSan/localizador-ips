@@ -2,7 +2,7 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 
-import App from '..';
+import App from '../../pages';
 
 
 describe('testes da tela inicial', () => {

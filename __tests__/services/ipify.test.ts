@@ -1,5 +1,5 @@
 import nock from 'nock';
-import { getClientIp, getLocationByIp } from './../ipify';
+import { getClientIp, getLocationByIp } from '../../services/ipify';
 
 import Config from '../../config';
 
