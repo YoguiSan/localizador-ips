@@ -1,7 +1,12 @@
 const ipifyUrl = process.env.NEXT_PUBLIC_IPIFY_ADDRESS;
 const ipifyApiKey = process.env.NEXT_PUBLIC_IPIFY_KEY;
 
-const Config: object = {
+type ConfigProps = {
+  ipifyUrl: string,
+  ipifyApiKey: string,
+};
+
+const Config:ConfigProps = {
   ipifyUrl,
   ipifyApiKey,
 }

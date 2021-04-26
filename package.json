@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next build && next start",
     "test": "jest",
     "test:watch": "jest --watch",
     "push": "git add . && git commit && git pull && git push"

@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 
 import Container from './Container';
 import { Context } from '../../pages';
 
-const Header:any = ({ changeIp, handleSearch }) => (
+interface HeaderProps extends InputHTMLAttributes<HTMLInputElement> {
+  changeIp: Function;
+  handleSearch: Function;
+}
+
+const Header:React.FC<HeaderProps> = ({ changeIp, handleSearch }) => (
   <Context.Consumer>
     {({ ip }) => (
       <Container>

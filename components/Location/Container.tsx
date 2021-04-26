@@ -4,7 +4,7 @@ import Colors from '../../styles/colors';
 
 const { DarkGray } = Colors;
 
-const Container:any = styles.div`
+const Container = styles.div`
 background: white;
 border-radius: .8rem;
 display: flex;

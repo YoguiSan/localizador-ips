@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, SetStateAction, useEffect, useState } from 'react';
 import styles from 'styled-components';
 import Header from '../components/Header';
 import Location from '../components/Location';
@@ -9,7 +9,8 @@ const Container = styles.main`
 `;
 
 export let Context;
-const Index = () => {
+
+const Index:React.FC = () => {
   const [ip, setIp] = useState('');
   const [location, setLocation] = useState('');
   const [clientLocation, setClientLocation] = useState('');
@@ -24,14 +25,13 @@ const Index = () => {
 
   const changeIp = (newIp: string):void => setIp(newIp);
 
-  const searchIp = async (ip:string):void => {
+  const searchIp = async (ip:string):Promise<any> => {
     const location = await getLocationByIp(ip);
     setLocation(location);
   };
 
-  useEffect(async ():Promise<void> => {
-    const clientLocationInfo:object = await getClientIp();
-
+  useEffect(() => {
+    const clientLocationInfo:SetStateAction<any> = async () => await getClientIp();
     setClientLocation(clientLocationInfo);
   }, []);
 

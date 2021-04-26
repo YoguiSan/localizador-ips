@@ -5,7 +5,7 @@ import Container from './Container';
 import { Context } from '../../pages';
 import Field from '../Field';
 
-const Location:any = () => {
+const Location:React.FC = () => {
   return(
     <Context.Consumer>
       {

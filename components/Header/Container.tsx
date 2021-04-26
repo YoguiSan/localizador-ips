@@ -2,7 +2,7 @@ import styles from 'styled-components';
 
 import Background from '../../assets/img/pattern-bg.png';
 
-const Container: any = styles.header`
+const Container = styles.header`
 background: url(${Background}) no-repeat;
 background-size: cover;
 height: 15rem;
